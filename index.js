@@ -123,8 +123,8 @@ io.on('connection', (socket) => {
                 }
                 else {
                     const newColor = arr[1];
-                    let re = /[0-9A-Fa-f]/g;
-                    if (re.test(newColor) && newColor.length === 3 || newColor.length === 6) {
+                    let re = /^[0-9A-Fa-f]{3,6}$/g;
+                    if (re.test(newColor) && (newColor.length === 3 || newColor.length === 6)) {
                         state.currentUsers = state.currentUsers.map((userObj) => {
                             if (userObj.id === socket.id) {
                                 return { ...userObj, color: newColor};
