@@ -103,6 +103,12 @@ io.on('connection', (socket) => {
                             }
                             return userObj;
                         });
+                        state.chatMessages = state.chatMessages.map((package) => {
+                            if (package.id === socket.id) {
+                                return {...package, username: newUsername};
+                            }
+                            return package;
+                        });
                     }
                 }
             }
