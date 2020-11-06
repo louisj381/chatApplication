@@ -11,6 +11,9 @@ const state = {
   chatMessages : [],
   nameCmd: "name",
   colorCmd: "color",
+  smileCode: "&#128513;",
+  sadCode: "&#128577;",
+  surprisedCode: "&#128562;",
   errorMsg: "",
 };
 
@@ -144,10 +147,19 @@ io.on('connection', (socket) => {
             const userObj = state.currentUsers.find(element => element.id === socket.id);
             let date = new Date();
             const timeStamp = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+            //change ":)" to emoticon
+            let filter = /:\)/gi;
+            let updatedMsg = msg.replace(filter, state.smileCode);
+            //change ":(" to emoticon
+            filter = /:\(/gi;
+            updatedMsg = updatedMsg.replace(filter, state.sadCode);
+            //change ":o" or ":O" to emoticon
+            filter = /:[o|O]/gi;
+            updatedMsg = updatedMsg.replace(filter, state.surprisedCode);
             const package = {
                 id: userObj.id,
                 username: userObj.username,
-                msg: msg,
+                msg: updatedMsg,
                 timeStamp: timeStamp
             };
             state.chatMessages.push(package);
