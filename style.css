@@ -1,0 +1,62 @@
+body {
+    background-color: aliceblue;
+    font: 13px Helvetica, Arial;
+}
+
+form { 
+    padding: 3px; 
+    position: absolute; 
+    bottom: 0; width: 95%;
+}
+form input { 
+    border: 1px black solid; 
+    padding: 10px;
+    width: 90%; 
+    margin-right: 0.5%;
+}
+
+form button { 
+    width: 9%; 
+    background: rgb(130, 224, 255); 
+    border: 1px black solid; 
+    padding: 10px; 
+}
+
+ul { 
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#messages li { 
+    padding: 5px 10px;
+}
+
+.you {
+    font-weight: bolder;
+    font-size: 105%;
+}
+
+.container {
+    max-width: 960px;
+    height: 100vh;
+}
+
+.row {
+    height: 100%;
+}
+
+.column {
+    background-color: rgba(86, 61, 124, .15);
+    border: 1px solid rgba(86, 61, 124, .2);
+}
+
+.panel-group {
+    position: absolute;
+    margin: 0 5px 8% 5px;
+    height: 92%;
+    overflow: auto;
+}
+
+li.you::after {
+    content: " (you)";
+}
