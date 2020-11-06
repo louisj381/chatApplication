@@ -222,6 +222,9 @@ function getUniqueUsername(id) {
         };
     }
     let lastNumber = state.currentUsers[userCount-1].username.split("_")[1];
+    if (isNaN(lastNumber)) {
+        lastNumber = 0;
+    }
     let nextNumber = Number(lastNumber) + 1;
     let nextUser = prefix + String(nextNumber);
 
