@@ -57,6 +57,11 @@ ul {
     overflow: auto;
 }
 
+.panel {
+    position: relative;
+    top: 85%;
+}
+
 li.you::after {
     content: " (you)";
 }
